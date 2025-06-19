@@ -1,0 +1,50 @@
+# ===== Maven =====
+# Build output
+/target/
+/**/target/
+
+# Eclipse metadata (if you ever import there)
+/.project
+.classpath
+.settings/
+/bin/
+
+# ===== IntelliJ IDEA =====
+# IntelliJ project files
+/.idea/
+/*.iml
+/*.iws
+/*.ipr
+
+# Uncomment if you store project-level libraries under .idea
+# /.idea/libraries/
+
+# ===== Java =====
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# Package files
+*.jar
+*.war
+*.ear
+
+# ===== OS-specific =====
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ===== Misc =====
+# Temporary files
+*.tmp
+*.swp
+*~.nib
+
+# IDE/editor backups
+*~

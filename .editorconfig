@@ -1,0 +1,12 @@
+# top-most EditorConfig file
+root = true
+
+# 1) Global settings
+[*]
+end_of_line = lf
+charset = utf-8
+
+# 2) Override for Java files
+[*.java]
+indent_style = tab
+tab_width = 2
