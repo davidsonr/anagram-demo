@@ -75,7 +75,7 @@ public class AnagramResultsTest {
   }
 
 
-  @DisplayName("should generate a report for multple anagrams")
+  @DisplayName("should generate a report for multiple anagrams")
   @Test
   void shouldGenerateReportForMultipleValidAnagrams() {
 

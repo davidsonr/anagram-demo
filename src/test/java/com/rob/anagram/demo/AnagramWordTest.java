@@ -1,12 +1,12 @@
 package com.rob.anagram.demo;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+
+import static org.junit.jupiter.api.Assertions.*;
+
 
 class AnagramWordTest {
 
@@ -28,6 +28,5 @@ class AnagramWordTest {
   void shouldThrowExceptionForInvalidAnagram(String invalidAnagram) {
     assertThrows(IllegalArgumentException.class, () -> new AnagramWord(invalidAnagram));
   }
-
 
 }

@@ -29,7 +29,7 @@ public class AnagramAppTest {
         aller ralle
         alt tal
         andre rande denar ander
-        """;
+        """.trim();
 
     Path report = Path.of("target", "anagram-report", "default.txt");
 

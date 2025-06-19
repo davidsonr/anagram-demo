@@ -13,7 +13,6 @@ public class AnagramFiles {
 
   final static String DEFAULT_ANAGRAM_FILE = "/ordbok-utf8.txt";
 
-
   public List<AnagramWord> getAnagramWordsFromStream(InputStream inputStream) {
 
     try (var reader = new BufferedReader(

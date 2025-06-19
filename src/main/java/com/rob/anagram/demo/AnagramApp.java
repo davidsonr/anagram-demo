@@ -1,15 +1,19 @@
 package com.rob.anagram.demo;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 
+@Slf4j
 public class AnagramApp {
 
   public static void main(String[] args) throws IOException {
 
+		log.info("App started");
     AnagramFiles anagramFileReader = new AnagramFiles();
 
     InputStream inputStream;
@@ -21,7 +25,6 @@ public class AnagramApp {
     }
 
     // read the file -- throw exception here
-
     var allAnagramWords = anagramFileReader.getAnagramWordsFromStream(inputStream);
 
     // get the results
@@ -41,7 +44,7 @@ public class AnagramApp {
         StandardOpenOption.CREATE,
         StandardOpenOption.TRUNCATE_EXISTING
     );
-    System.out.println("Wrote report to " + outFile);
 
+		log.info("Application Finished file written to: [{}] ", outFile);
   }
 }

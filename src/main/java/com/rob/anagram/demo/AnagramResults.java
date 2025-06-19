@@ -2,21 +2,22 @@ package com.rob.anagram.demo;
 
 import static java.util.stream.Collectors.*;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class AnagramResults {
 
   List<String> fetchAnagramResults(List<AnagramWord> allAnagrams) {
 
-    // group on sorted words
+    // group on sorted words, LinkedHashMap to preserve order
     Map<String, List<AnagramWord>> anagrams =
         allAnagrams
             .stream()
             .collect(groupingBy(
-                e -> e.getSortedWord(),
-                toList()));
+							AnagramWord::getSortedWord,
+							LinkedHashMap::new,
+							toList()));
 
     // once you have the grouping you only want anagrams
     // with more than one match

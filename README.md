@@ -21,5 +21,15 @@ allow extensino. e.g. change the report format, file input option without needin
 
 Test pyriamid approach, more unit tests fewer integration tests
 
+Spring Not included
+
+Scope Limiting
+
+Given the limited time spent working on this I chose at least initially not to use the following
+
+Could do more around building to Jar files
+
+Could include a proper logging framework like Log4j
+
 Java 21 is the current LTS version of java so will use this
 # anagram-demo

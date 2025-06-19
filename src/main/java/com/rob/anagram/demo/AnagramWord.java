@@ -37,4 +37,5 @@ public class AnagramWord {
       throw new IllegalArgumentException("Word must contain only letters: " + word);
     }
   }
+
 }
