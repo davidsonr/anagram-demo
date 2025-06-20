@@ -46,7 +46,7 @@ Things considered but ruled out of scope to keep the app small but could be expl
 - Building an executable JAR (used `mvn exec` for simplicity)
 - CI pipeline setup
 - Ability to use different anagrams files on demand
+  - File not found if you did use different files may need to explore this further
 - Fault tolerance
    - Assumes case-insensitive matching.
    - Error handling. Could do better on whitespaces
-   - Error exceptions e.g. file not found
