@@ -1,35 +1,52 @@
 
-
-Design Assumptions and Approach
-
-
-Follow TDD approach. Starting with the test this will shape the eventual design of the system
-Testing Validation of input and validation mostly done at unit test level 
-Minimal depdenecies.  Add depdnecies that help with speed and consistency.
- - lombok - less boiler plate code
- - check style - use google checkstyle and auto formatting with intellij.  All set to use defaults.
- - junit for writing tests
- - Bash for integration test
-
- I’ve added Hamcrest to make testing collection assertions more expressive, hamcrest is included with most 
- Java spring projects and although this is not a spring project I think it is a useful test library
-
-case insensive anagram - but allow it to be changed.  
-ignore whitespace to allow better fault tolerance 
-console based - provide script to run and execute
-allow extensino. e.g. change the report format, file input option without needing to modify unrelated parts of the code base
-
-Test pyriamid approach, more unit tests fewer integration tests
-
-Spring Not included
-
-Scope Limiting
-
-Given the limited time spent working on this I chose at least initially not to use the following
-
-Could do more around building to Jar files
-
-Could include a proper logging framework like Log4j
-
-Java 21 is the current LTS version of java so will use this
 # anagram-demo
+
+This Java program parses `words-utf8.txt` (one word per line) and writes all detected anagram groups to `target/anagram-report/default.txt`.
+
+
+## Project setup requirements
+
+Java 21
+Apache Maven
+
+## Getting Started
+
+```bash
+
+## 1. execute the tests
+mvn test
+
+## 2. execute the application
+mvn compile exec:java
+
+## 3. view the report
+cat target/anagram-report/default.txt
+```
+
+Or just run
+
+`run-app.sh`
+
+## Architecture & Design Decisions
+
+- **TDD-based design.** Tests drove implementation and system structure.
+
+- **Minimal dependencies:**
+    - Lombok (reduces boilerplate)
+    - Google Checkstyle auto-format code style consistency
+    - Hamcrest for testing with expressive collection assertions
+- **Behavior:**
+    - Console-based, scriptable execution
+- **Excluded:** Spring Framework
+
+## Out of Scope
+
+Things considered but ruled out of scope to keep the app small
+
+- Building an executable JAR (used `mvn exec` for simplicity)
+- CI pipeline setup
+- Upload different files on demand
+- Flexible fault tolerance
+   - Assumes case-insensitive matching; could be extended to support configurable case sensitivity modes
+   - Error handling. Could perhaps do better on whitespaces
+   - Error exceptions e.g. file not found

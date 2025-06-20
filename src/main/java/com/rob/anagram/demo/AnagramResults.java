@@ -8,28 +8,28 @@ import java.util.Map;
 
 public class AnagramResults {
 
-  List<String> fetchAnagramResults(List<AnagramWord> allAnagrams) {
+	List<String> fetchAnagramResults(List<AnagramWord> allAnagrams) {
 
-    // group on sorted words, LinkedHashMap to preserve order
-    Map<String, List<AnagramWord>> anagrams =
-        allAnagrams
-            .stream()
-            .collect(groupingBy(
-							AnagramWord::getSortedWord,
-							LinkedHashMap::new,
-							toList()));
+		// group on sorted words, LinkedHashMap to preserve order
+		Map<String, List<AnagramWord>> anagrams =
+			allAnagrams
+				.stream()
+				.collect(groupingBy(
+					AnagramWord::getSortedWord,
+					LinkedHashMap::new,
+					toList()));
 
-    // once you have the grouping you only want anagrams
-    // with more than one match
-    return anagrams.entrySet()
-            .stream()
-            .filter(e -> e.getValue().size() > 1)
-            .map(e -> e.getValue()
-                .stream()
-                .map(AnagramWord::getOriginalWord)
-                .collect(joining(" ")))
-            .toList();
-  }
+		// once you have the grouping you only want anagrams
+		// with more than one match
+		return anagrams.entrySet()
+			.stream()
+			.filter(e -> e.getValue().size() > 1)
+			.map(e -> e.getValue()
+				.stream()
+				.map(AnagramWord::getOriginalWord)
+				.collect(joining(" ")))
+			.toList();
+	}
 
 
 }

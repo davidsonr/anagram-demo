@@ -78,7 +78,6 @@
         <version>${exec-maven-plugin.version}</version>
         <configuration>
           <mainClass>com.rob.anagram.demo.AnagramApp</mainClass>
-          <classpathScope>runtime</classpathScope>
         </configuration>
       </plugin>
       <plugin>

@@ -11,95 +11,94 @@ import org.junit.jupiter.api.Test;
 public class AnagramResultsTest {
 
 
-  @DisplayName("should not return null for list of valid anagrams")
-  @Test
-  void shouldNotReturnNullForValidAnagrams() {
+	@DisplayName("should not return null for list of valid anagrams")
+	@Test
+	void shouldNotReturnNullForValidAnagrams() {
 
-    // arrange
-    List<AnagramWord> allAnagrams = Arrays.asList(
-        new AnagramWord("abc"),
-        new AnagramWord("bac"),
-        new AnagramWord("aba")
-    );
+		// arrange
+		List<AnagramWord> allAnagrams = Arrays.asList(
+			new AnagramWord("abc"),
+			new AnagramWord("bac"),
+			new AnagramWord("aba")
+		);
 
-    AnagramResults anagramResults = new AnagramResults();
+		AnagramResults anagramResults = new AnagramResults();
 
-    // act
-    var actualReport = anagramResults.fetchAnagramResults(allAnagrams);
+		// act
+		var actualReport = anagramResults.fetchAnagramResults(allAnagrams);
 
-    // assert
-    assertNotNull(actualReport);
-
-  }
-
-
-  @DisplayName("should generate a report for basic anagram input")
-  @Test
-  void shouldGenerateReportForValidAnagrams() {
-
-    // arrange
-    List<AnagramWord> allAnagrams = Arrays.asList(
-        new AnagramWord("abc"),
-        new AnagramWord("bac"),
-        new AnagramWord("cba")
-    );
-
-    AnagramResults anagramResults = new AnagramResults();
-
-    // act
-    var actualReport = anagramResults.fetchAnagramResults(allAnagrams);
-
-    // assert
-    assertEquals("abc bac cba", actualReport.getFirst());
-  }
+		// assert
+		assertNotNull(actualReport);
+	}
 
 
-  @DisplayName("should skip words not part of anagram")
-  @Test
-  void shouldSkipWordsNotPartOfAnagram() {
+	@DisplayName("should generate a report for basic anagram input")
+	@Test
+	void shouldGenerateReportForValidAnagrams() {
 
-    // arrange
-    List<AnagramWord> allAnagrams = Arrays.asList(
-        new AnagramWord("abc"),
-        new AnagramWord("bac"),
-        new AnagramWord("cbz")  // not part of anagram
-    );
+		// arrange
+		List<AnagramWord> allAnagrams = Arrays.asList(
+			new AnagramWord("abc"),
+			new AnagramWord("bac"),
+			new AnagramWord("cba")
+		);
 
-    AnagramResults anagramResults = new AnagramResults();
+		AnagramResults anagramResults = new AnagramResults();
 
-    // act
-    var actualReport = anagramResults.fetchAnagramResults(allAnagrams);
+		// act
+		var actualReport = anagramResults.fetchAnagramResults(allAnagrams);
 
-    // assert
-    assertEquals("abc bac", actualReport.getFirst());
-  }
+		// assert
+		assertEquals("abc bac cba", actualReport.getFirst());
+	}
 
 
-  @DisplayName("should generate a report for multiple anagrams")
-  @Test
-  void shouldGenerateReportForMultipleValidAnagrams() {
+	@DisplayName("should skip words not part of anagram")
+	@Test
+	void shouldSkipWordsNotPartOfAnagram() {
 
-    // arrange
-    List<AnagramWord> allAnagrams = Arrays.asList(
-        new AnagramWord("abc"),
-        new AnagramWord("bac"),
-        new AnagramWord("cba"),
-        new AnagramWord("xyza"),
-        new AnagramWord("zyxa")
-    );
+		// arrange
+		List<AnagramWord> allAnagrams = Arrays.asList(
+			new AnagramWord("abc"),
+			new AnagramWord("bac"),
+			new AnagramWord("cbz")  // not part of anagram
+		);
 
-    AnagramResults anagramResults = new AnagramResults();
+		AnagramResults anagramResults = new AnagramResults();
 
-    // act
-    var actualReport = anagramResults.fetchAnagramResults(allAnagrams);
+		// act
+		var actualReport = anagramResults.fetchAnagramResults(allAnagrams);
 
-    String expectedReport = """
-        abc bac cba
-        xyza zyxa
-        """.strip();
+		// assert
+		assertEquals("abc bac", actualReport.getFirst());
+	}
 
-    // assert
-    assertEquals(expectedReport, String.join("\n", actualReport));
-  }
+
+	@DisplayName("should generate a report for multiple anagrams")
+	@Test
+	void shouldGenerateReportForMultipleValidAnagrams() {
+
+		// arrange
+		List<AnagramWord> allAnagrams = Arrays.asList(
+			new AnagramWord("abc"),
+			new AnagramWord("bac"),
+			new AnagramWord("cba"),
+			new AnagramWord("xyza"),
+			new AnagramWord("zyxa")
+		);
+
+		AnagramResults anagramResults = new AnagramResults();
+
+		// act
+		var actualReport = anagramResults.fetchAnagramResults(allAnagrams);
+
+		String expectedReport = """
+			abc bac cba
+			xyza zyxa
+			""".strip();
+
+		// assert
+		assertEquals(expectedReport, String.join("\n", actualReport));
+	}
 
 }

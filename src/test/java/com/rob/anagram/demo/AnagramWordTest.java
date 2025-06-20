@@ -10,23 +10,23 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AnagramWordTest {
 
-  @DisplayName("Should convert valid word to Anagram object")
-  @Test
-  void shouldConvertWordToAnagramWord() {
+	@DisplayName("Should convert valid word to Anagram object")
+	@Test
+	void shouldConvertWordToAnagramWord() {
 
-    String word = "CBA";
+		String word = "CBA";
 
-    var AnagramWord = new AnagramWord(word);
+		var AnagramWord = new AnagramWord(word);
 
-    assertEquals("CBA", AnagramWord.getOriginalWord());
-    assertEquals("ABC", AnagramWord.getSortedWord());
-  }
+		assertEquals("CBA", AnagramWord.getOriginalWord());
+		assertEquals("ABC", AnagramWord.getSortedWord());
+	}
 
-  @DisplayName("Should throw exception for invalid anagram words")
-  @ValueSource(strings = {"cba ", " ", "ABC12", "AB BA"})
-  @ParameterizedTest(name = "invalid input: \"{0}\"")
-  void shouldThrowExceptionForInvalidAnagram(String invalidAnagram) {
-    assertThrows(IllegalArgumentException.class, () -> new AnagramWord(invalidAnagram));
-  }
+	@DisplayName("Should throw exception for invalid anagram words")
+	@ValueSource(strings = {"cba ", " ", "ABC12", "AB BA"})
+	@ParameterizedTest(name = "invalid anagram input: \"{0}\"")
+	void shouldThrowExceptionForInvalidAnagram(String invalidAnagram) {
+		assertThrows(IllegalArgumentException.class, () -> new AnagramWord(invalidAnagram));
+	}
 
 }
