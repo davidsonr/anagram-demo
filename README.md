@@ -6,8 +6,8 @@ This Java program parses `words-utf8.txt` (one word per line) and writes all det
 
 ## Project setup requirements
 
-Java 21
-Apache Maven
+- Java 21
+- Apache Maven
 
 ## Getting Started
 
@@ -41,12 +41,12 @@ Or just run
 
 ## Out of Scope
 
-Things considered but ruled out of scope to keep the app small
+Things considered but ruled out of scope to keep the app small but could be explored further
 
 - Building an executable JAR (used `mvn exec` for simplicity)
 - CI pipeline setup
-- Upload different files on demand
-- Flexible fault tolerance
-   - Assumes case-insensitive matching; could be extended to support configurable case sensitivity modes
-   - Error handling. Could perhaps do better on whitespaces
+- Use different files on demand
+- Fault tolerance
+   - Assumes case-insensitive matching.
+   - Error handling. Could do better on whitespaces
    - Error exceptions e.g. file not found
