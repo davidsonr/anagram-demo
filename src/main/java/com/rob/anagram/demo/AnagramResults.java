@@ -10,7 +10,7 @@ public class AnagramResults {
 
 	List<String> fetchAnagramResults(List<AnagramWord> allAnagrams) {
 
-		// group on sorted words, LinkedHashMap to preserve order
+		// group on sorted words, LinkedHashMap used to preserve order
 		Map<String, List<AnagramWord>> anagrams =
 			allAnagrams
 				.stream()
@@ -19,8 +19,7 @@ public class AnagramResults {
 					LinkedHashMap::new,
 					toList()));
 
-		// once you have the grouping you only want anagrams
-		// with more than one match
+		// use only anagrams with more than one match
 		return anagrams.entrySet()
 			.stream()
 			.filter(e -> e.getValue().size() > 1)

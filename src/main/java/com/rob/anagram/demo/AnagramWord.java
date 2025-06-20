@@ -24,11 +24,9 @@ public class AnagramWord {
 	}
 
 	private static void validateAnagram(String word) {
-		// null check
 		if (word == null) {
 			throw new IllegalArgumentException("Word must not be null");
 		}
-		// empty or whitespace-only
 		if (word.trim().isEmpty()) {
 			throw new IllegalArgumentException("Word must contain at least one non-space character");
 		}
